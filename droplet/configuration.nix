@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["switch_to_pgsql"];
+  system.nixos.tags = ["deleted_statefull_data_having_a_noter_go_at_pgsql"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -126,8 +126,9 @@
     hostName = "droplet";
     database.createLocally = true;
     config = {
-      dbtype = "mysql";  # ste nextcloud to use mariadb
+      dbtype = "pgsql";
       adminpassFile = "/etc/nextcloud-admin-pass";
+      defaultPhoneRegion = "DE";
     };
     # redis performant caching backend -> faster page loading
     configureRedis = true;
