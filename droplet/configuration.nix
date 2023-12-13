@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["deleted_statefull_data_having_a_noter_go_at_pgsql"];
+  system.nixos.tags = ["rmp"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -119,7 +119,6 @@
   
 
   # Enable the nextcloud server
-  environment.etc."nextcloud-admin-pass".text = "#v6EfNV63T";
   services.nextcloud = {
     enable = true; 
     package = pkgs.nextcloud27;
