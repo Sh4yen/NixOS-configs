@@ -128,7 +128,7 @@
     config = {
       dbtype = "pgsql";  # ste nextcloud to use mariadb
       adminpassFile = "/etc/nextcloud-admin-pass";
-    }
+    };
     # redis performant caching backend -> faster page loading
     configureRedis = true;
     # enable https encryption
