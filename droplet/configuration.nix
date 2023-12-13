@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["backto27"];
+  system.nixos.tags = ["switch_to_pgsql"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -124,7 +124,11 @@
     enable = true; 
     package = pkgs.nextcloud27;
     hostName = "droplet";
-    config.adminpassFile = "/etc/nextcloud-admin-pass";
+    database.createLocally = true;
+    config = {
+      dbtype = "pgsql";  # ste nextcloud to use mariadb
+      adminpassFile = "/etc/nextcloud-admin-pass";
+    }
     # redis performant caching backend -> faster page loading
     configureRedis = true;
     # enable https encryption
