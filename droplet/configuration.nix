@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["upgrade_to_nextcloud_28"];
+  system.nixos.tags = ["backto27"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -122,7 +122,7 @@
   environment.etc."nextcloud-admin-pass".text = "#v6EfNV63T";
   services.nextcloud = {
     enable = true; 
-    package = pkgs.nextcloud28;
+    package = pkgs.nextcloud27;
     hostName = "droplet";
     config.adminpassFile = "/etc/nextcloud-admin-pass";
     # redis performant caching backend -> faster page loading
