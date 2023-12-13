@@ -126,7 +126,7 @@
     hostName = "droplet";
     database.createLocally = true;
     config = {
-      dbtype = "pgsql";  # ste nextcloud to use mariadb
+      dbtype = "mysql";  # ste nextcloud to use mariadb
       adminpassFile = "/etc/nextcloud-admin-pass";
     };
     # redis performant caching backend -> faster page loading
