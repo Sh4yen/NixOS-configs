@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["rmp"];
+  system.nixos.tags = ["raised_interned_strings_buffer_to_64_mb"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -128,6 +128,7 @@
       dbtype = "pgsql";
       adminpassFile = "/etc/nextcloud-admin-pass";
       defaultPhoneRegion = "DE";
+      extraTrustedDomains = ["droplet.tail3eae4.ts.net"];
     };
     # redis performant caching backend -> faster page loading
     configureRedis = true;
@@ -138,18 +139,19 @@
     phpOptions = {
       upload_max_filesize = "128G";
       post_max_size = "128G";
+      "opcache.interned_strings_buffer" = "64";  # MB
     };
   };
 
   # get https certs and force Secure Sockets Layer
   services.nginx.virtualHosts.droplet  = {
-    forceSSL = true;
-    enableACME = true;
+    # forceSSL = true;
+    # enableACME = true;
   };
   
   # accept lets encrypts TOS
-  security.acme.acceptTerms = true;
-  security.acme.defaults.email = "marxloui@protonmail.com";
+  # security.acme.acceptTerms = true;
+  # security.acme.defaults.email = "marxloui@protonmail.com";
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 80 443 ];
