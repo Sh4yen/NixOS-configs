@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["symlink"];
+  system.nixos.tags = ["just_a_sys_upgrade"];
 
   imports =
     [ # Include the results of the hardware scan.
