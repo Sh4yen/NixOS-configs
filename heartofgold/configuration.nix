@@ -150,6 +150,9 @@ in
     microsoft-edge
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
 
   # enable steam 
   programs.steam = {
