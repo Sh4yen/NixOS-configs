@@ -1,4 +1,4 @@
-u# Edit this configuration file to define what should be installed on
+# Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 # Arguments used to evaluate the config
@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["python"];
+  system.nixos.tags = ["added_jupyter_to_python"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -148,7 +148,7 @@ in
     libsForQt5.polkit-kde-agent
     polkit_gnome
     microsoft-edge
-    (python3.withPackages(ps: with ps; [ matplotlib numpy]))
+    (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter]))
   ];
 
 
