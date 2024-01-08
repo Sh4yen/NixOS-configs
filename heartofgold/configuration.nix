@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["just_a_sys_upgrade"];
+  system.nixos.tags = ["removed_electron_onenote"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -145,15 +145,9 @@ in
     nomacs  # image viewer
     picard  # music tagger
     gnome.seahorse  # keyring gui
-    p3x-onenote
     libsForQt5.polkit-kde-agent
     polkit_gnome
     microsoft-edge
-  ];
-
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-22.3.27"
   ];
 
 
