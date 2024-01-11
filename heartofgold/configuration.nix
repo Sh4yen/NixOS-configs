@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["added_jupyter_to_python"];
+  system.nixos.tags = ["added_xdg_utils"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -110,12 +110,12 @@ in
     vim
     wget  # http/s, ftp, file grabber
     kitty
-    dunst
+    dunst  # Notification agent
     libnotify
     xdg-desktop-portal-hyprland
     firefox
     tree
-    vscode
+    vscode-fhs
     sl
     hyprpaper  # wallpaper
     spotify
@@ -149,6 +149,7 @@ in
     polkit_gnome
     microsoft-edge
     (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter]))
+    xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
   ];
 
 
