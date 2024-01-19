@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["added_xdg_utils"];
+  system.nixos.tags = ["added_sympy_scipy"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -148,7 +148,7 @@ in
     libsForQt5.polkit-kde-agent
     polkit_gnome
     microsoft-edge
-    (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter]))
+    (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy]))
     xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
   ];
 
