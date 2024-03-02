@@ -180,9 +180,9 @@
   # security.acme.defaults.email = "marxloui@protonmail.com";
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 25565];
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [ 25565 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
