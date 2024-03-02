@@ -100,6 +100,7 @@
     git
     neofetch
     htop
+    minecraft-server
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
