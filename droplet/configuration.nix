@@ -101,6 +101,7 @@
     neofetch
     htop
     minecraft-server
+    mcron
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -143,6 +144,30 @@
       "opcache.interned_strings_buffer" = "64";  # MB
     };
   };
+
+
+  # Enable minecraft server
+  services.minecraft-server = {
+    enable = true;
+    eula = true; # set to true if you agree to Mojang's EULA: https://account.mojang.com/documents/minecraft_eula
+    declarative = true;
+
+    # see here for more info: https://minecraft.gamepedia.com/Server.properties#server.properties
+    serverProperties = {
+      server-port = 25565;
+      gamemode = "survival";
+      motd = "Louis server";
+      max-players = 20;
+      enable-rcon = false;
+      # This password can be used to administer your minecraft server.
+      # Exact details as to how will be explained later. If you want
+      # you can replace this with another password.
+      "rcon.password" = "69420";
+      level-seed = "";
+      difficulty = "hard";
+    };
+  };
+
 
   # get https certs and force Secure Sockets Layer
   services.nginx.virtualHosts.droplet  = {
