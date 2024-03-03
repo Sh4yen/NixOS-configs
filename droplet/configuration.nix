@@ -154,9 +154,9 @@
 
     # see here for more info: https://minecraft.gamepedia.com/Server.properties#server.properties
     serverProperties = {
-      server-port = 25560;
+      server-port = 25565;
       gamemode = "survival";
-      motd = "Louis server";
+      motd = "Droplet";
       max-players = 20;
       enable-rcon = false;
       # This password can be used to administer your minecraft server.
