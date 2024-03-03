@@ -154,7 +154,7 @@
 
     # see here for more info: https://minecraft.gamepedia.com/Server.properties#server.properties
     serverProperties = {
-      server-port = 25565;
+      server-port = 25560;
       gamemode = "survival";
       motd = "Louis server";
       max-players = 20;
@@ -180,9 +180,9 @@
   # security.acme.defaults.email = "marxloui@protonmail.com";
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 443 25565];
+  networking.firewall.allowedTCPPorts = [ 80 443 25560];
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [ 25565 ];
+  networking.firewall.allowedUDPPorts = [ 25560 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
