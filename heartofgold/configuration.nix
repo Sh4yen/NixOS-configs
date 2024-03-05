@@ -151,6 +151,7 @@ in
     (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy]))
     xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
     prismlauncher  # minecraft launcher
+    virtualbox  #  PC emulator
   ];
 
 
