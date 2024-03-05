@@ -166,6 +166,9 @@ in
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
+# enable vm-ware
+virtualisation.vmware.host.enable = true;
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
