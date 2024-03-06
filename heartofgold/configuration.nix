@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["added_sympy_scipy"];
+  system.nixos.tags = ["added_qemu"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -151,6 +151,7 @@ in
     (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy]))
     xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
     prismlauncher  # minecraft launcher
+    qemu
   ];
 
 
