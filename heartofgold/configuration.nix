@@ -148,7 +148,7 @@ in
     libsForQt5.polkit-kde-agent
     polkit_gnome
     microsoft-edge
-    (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy]))
+    (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy libxml2-python3]))
     xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
     prismlauncher  # minecraft launcher
   ];
