@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["added_qemu"];
+  system.nixos.tags = ["added_quickemu"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -152,6 +152,7 @@ in
     xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
     prismlauncher  # minecraft launcher
     qemu
+    quickemu
   ];
 
 
