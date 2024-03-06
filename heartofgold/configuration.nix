@@ -151,7 +151,6 @@ in
     (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy]))
     xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
     prismlauncher  # minecraft launcher
-    virtualbox  #  PC emulator
   ];
 
 
@@ -166,8 +165,9 @@ in
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
-# enable vm-ware
-virtualisation.vmware.host.enable = true;
+# enable virt-manager
+virtualisation.libvirtd.enable = true;
+programs.virt-manager.enable = true;
 
   # List services that you want to enable:
 
