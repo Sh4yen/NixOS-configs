@@ -167,8 +167,7 @@ in
 
 # enable virt-manager
 virtualisation.libvirtd.enable = true;
-programs.dconf.enable = true; # virt-manager requires dconf to remember settings
-environment.systemPackages = with pkgs; [ virt-manager ]
+programs.virt-manager.enable = true;
 
   # List services that you want to enable:
 
