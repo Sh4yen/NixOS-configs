@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["raised_interned_strings_buffer_to_64_mb"];
+  system.nixos.tags = ["upgrade_to_nextcloud28"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -123,7 +123,7 @@
   # Enable the nextcloud server
   services.nextcloud = {
     enable = true; 
-    package = pkgs.nextcloud27;
+    package = pkgs.nextcloud28;
     hostName = "droplet";
     database.createLocally = true;
     config = {
@@ -180,9 +180,9 @@
   # security.acme.defaults.email = "marxloui@protonmail.com";
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 443 25560];
+  networking.firewall.allowedTCPPorts = [ 80 443 8443];
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [ 25560 ];
+  networking.firewall.allowedUDPPorts = [443 8443];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
