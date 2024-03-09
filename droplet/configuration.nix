@@ -154,7 +154,7 @@
 
     # see here for more info: https://minecraft.gamepedia.com/Server.properties#server.properties
     serverProperties = {
-      server-port = 25565;
+      server-port = 8443;
       gamemode = "survival";
       motd = "Droplet";
       max-players = 20;
