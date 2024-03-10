@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["upgrade_to_nextcloud28"];
+  system.nixos.tags = ["changed_nextcloud_domain_name"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -129,9 +129,9 @@
     config = {
       dbtype = "pgsql";
       adminpassFile = "/etc/nextcloud-admin-pass";
-      defaultPhoneRegion = "DE";
-      extraTrustedDomains = ["droplet.tail3eae4.ts.net"];
     };
+    settings.default_phone_region = "DE";
+    settings.trusted_domains = ["droplet.tail3eae4.ts.net/nextcloud" "droplet.tail3eae4.ts.net"];
     # redis performant caching backend -> faster page loading
     configureRedis = true;
     # enable https encryption
@@ -154,7 +154,7 @@
 
     # see here for more info: https://minecraft.gamepedia.com/Server.properties#server.properties
     serverProperties = {
-      server-port = 8443;
+      server-port = 25565;
       gamemode = "survival";
       motd = "Droplet";
       max-players = 20;
@@ -180,9 +180,9 @@
   # security.acme.defaults.email = "marxloui@protonmail.com";
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 443 8443];
+  networking.firewall.allowedTCPPorts = [ 80 25565];
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [443 8443];
+  networking.firewall.allowedUDPPorts = [25565];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
