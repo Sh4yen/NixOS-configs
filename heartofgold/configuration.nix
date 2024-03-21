@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["added_quickemu"];
+  system.nixos.tags = ["removed_gimp"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -124,7 +124,7 @@ in
     pfetch  # like neofetch
     nerdfonts
     git
-    waybar
+#    waybar
     hyprpicker  # color picker
     feh  # image viewer
     signal-desktop
@@ -141,7 +141,7 @@ in
     wl-clipboard  # ctr+c and ctr+v used for screenshots
     libreoffice
     wineWowPackages.waylandFull
-    gimp-with-plugins  # image manipulation tool
+#    gimp-with-plugins  # image manipulation tool
     nomacs  # image viewer
     picard  # music tagger
     gnome.seahorse  # keyring gui
