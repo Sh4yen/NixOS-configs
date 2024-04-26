@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["julia"];
+  system.nixos.tags = ["qalculate-gtk"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -155,6 +155,7 @@ in
     qemu
     quickemu
     telegram-desktop
+    qalculate-gtk
     # femm https://www.femm.info/wiki/Download
   ];
 
