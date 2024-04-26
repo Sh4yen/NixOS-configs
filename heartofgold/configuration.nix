@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["removed_gimp"];
+  system.nixos.tags = ["julia"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -149,10 +149,13 @@ in
     polkit_gnome
     microsoft-edge
     (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy]))
+    julia
     xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
     prismlauncher  # minecraft launcher
     qemu
     quickemu
+    telegram-desktop
+    # femm https://www.femm.info/wiki/Download
   ];
 
 
