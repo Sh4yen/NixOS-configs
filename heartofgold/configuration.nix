@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["qalculate-gtk"];
+  system.nixos.tags = ["android-tools"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -156,6 +156,7 @@ in
     quickemu
     telegram-desktop
     qalculate-gtk
+    android-tools
     # femm https://www.femm.info/wiki/Download
   ];
 
