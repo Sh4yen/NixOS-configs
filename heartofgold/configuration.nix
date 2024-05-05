@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["android-tools"];
+  system.nixos.tags = ["java"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -157,6 +157,7 @@ in
     telegram-desktop
     qalculate-gtk
     android-tools
+    javaPackages.openjfx21
     # femm https://www.femm.info/wiki/Download
   ];
 
