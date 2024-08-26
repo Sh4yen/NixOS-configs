@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["removed_nerd_fonts"];
+  system.nixos.tags = ["renamed_old_stuff_to_fit_new_conventions"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -76,8 +76,8 @@ in
   programs.hyprland.enable = true;
   
   # OpenGL/CL and Vulkan support
-  hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
   rocm-opencl-icd
   rocm-opencl-runtime
   amdvlk
@@ -139,7 +139,7 @@ in
 #    gimp-with-plugins  # image manipulation tool
     nomacs  # image viewer
     picard  # music tagger
-    gnome.seahorse  # keyring gui
+    seahorse  # keyring gui
     libsForQt5.polkit-kde-agent
     polkit_gnome
     microsoft-edge
