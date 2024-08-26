@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["diasbled_sound_and_dri_support_no_effect"];
+  system.nixos.tags = ["removed_nerd_fonts"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -118,7 +118,6 @@ in
     steam
     wofi  # launcher
     pfetch  # like neofetch
-    nerdfonts
     git
 #    waybar
     hyprpicker  # color picker
