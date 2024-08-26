@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["COSMIC_keymap_fix"];
+  system.nixos.tags = ["btop"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -159,6 +159,7 @@ in
     qalculate-gtk
     android-tools
     javaPackages.openjfx21
+    btop
     # femm https://www.femm.info/wiki/Download
   ];
 
