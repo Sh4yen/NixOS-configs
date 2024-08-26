@@ -164,7 +164,8 @@ in
     "electron-25.9.0"
   ];
 
-  # enable COSMIC
+  # enable 
+  hardware.system76.enableAll = true;
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
   # enable flatpak
