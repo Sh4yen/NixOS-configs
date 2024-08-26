@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["enabled_COSMIC"];
+  system.nixos.tags = ["COSMIC_works"];
 
   imports =
     [ # Include the results of the hardware scan.
