@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["enabled_flatpack"];
+  system.nixos.tags = ["enabled_COSMIC"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -163,6 +163,10 @@ in
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];
+
+  # enable COSMIC
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
   # enable flatpak
   xdg.portal.enable = true;
 
