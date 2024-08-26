@@ -19,12 +19,12 @@ in
   # allow unfree software
   nixpkgs.config.allowUnfree = true;
 
-  # enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # automate garbage collection
   nix = {
-    settings.auto-optimise-store = true;
+    settings= {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];  # enable flakes
+    };
     gc = {
       automatic = true;
       dates = "weekly";
