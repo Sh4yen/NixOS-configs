@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["disabled_hyprland_to_try_cosmic"];
+  system.nixos.tags = ["enabled_flatpack"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -163,6 +163,8 @@ in
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];
+  # enable flatpak
+  xdg.portal.enable = true;
 
   # enable steam 
   programs.steam = {
