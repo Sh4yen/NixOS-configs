@@ -217,7 +217,7 @@ programs.virt-manager.enable = true;
   system.stateVersion = "23.05"; # Did you read the comment?
 
   # keep copy of last configuration.nix in /run/current-system/configuration.nix
-  system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true;
 
 
 
