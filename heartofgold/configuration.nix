@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["renamed_old_stuff_to_fit_new_conventions"];
+  system.nixos.tags = ["enable_flakes"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -18,6 +18,9 @@ in
 
   # allow unfree software
   nixpkgs.config.allowUnfree = true;
+
+  # enable flakes
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # automate garbage collection
   nix = {
