@@ -165,8 +165,8 @@ in
   ];
 
   # enable 
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  # services.desktopManager.cosmic.enable = true;
+  # services.displayManager.cosmic-greeter.enable = true;
   # enable flatpak
   xdg.portal.enable = true;
 
