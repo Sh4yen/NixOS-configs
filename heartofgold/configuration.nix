@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["java"];
+  system.nixos.tags = ["diasbled_sound_and_dri_support_no_effect"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -63,8 +63,6 @@ in
   console.keyMap = "de";
 
   # Sound
-  sound.enable = true;
-  sound.mediaKeys.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -86,8 +84,6 @@ in
   driversi686Linux.amdvlk	# add vulkan support for 32-bit applications
   ];
 
-  # Vulkan Support
-  hardware.opengl.driSupport = true;
 
   # Force radv (graphics card driver)
   environment.variables.AMD_VULKAN_ICD = "RADV";
