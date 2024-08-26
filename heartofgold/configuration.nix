@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["enable_flakes"];
+  system.nixos.tags = ["disabled_hyprland_to_try_cosmic"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -76,7 +76,7 @@ in
   };	 
 
   # define window manager
-  programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
   
   # OpenGL/CL and Vulkan support
   hardware.graphics.enable = true;
