@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["COSMIC_works"];
+  system.nixos.tags = ["COSMIC_keymap_fix"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -64,6 +64,9 @@ in
   
   #Configure console Keymap
   console.keyMap = "de";
+  systemd.tmpfiles.rules = [
+  "L /usr/share/X11/xkb/rules/base.xml - - - - ${pkgs.xkeyboard_config}/share/X11/xkb/rules/base.xml"
+];
 
   # Sound
   security.rtkit.enable = true;
