@@ -164,11 +164,12 @@ in
     "electron-25.9.0"
   ];
 
-  # enable 
-  # services.desktopManager.cosmic.enable = true;
-  # services.displayManager.cosmic-greeter.enable = true;
+  # enable COSMIC
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
   # enable flatpak
   xdg.portal.enable = true;
+  xdg.portal.config.common.default = "*";
 
   # enable steam 
   programs.steam = {
