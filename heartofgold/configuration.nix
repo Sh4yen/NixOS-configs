@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["btop"];
+  system.nixos.tags = ["python_siunits"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -149,7 +149,7 @@ in
     libsForQt5.polkit-kde-agent
     polkit_gnome
     microsoft-edge
-    (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy]))
+    (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy siunits]))
     julia
     xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
     prismlauncher  # minecraft launcher
