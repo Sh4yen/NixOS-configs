@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["no_python_siunits"];
+  system.nixos.tags = ["added_drawio"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -160,6 +160,7 @@ in
     android-tools
     javaPackages.openjfx21
     btop
+    drawio
     # femm https://www.femm.info/wiki/Download
   ];
 
