@@ -146,9 +146,9 @@
   };
 
 
-  # Enable minecraft server
+  # disable minecraft server
   services.minecraft-server = {
-    enable = true;
+    enable = false;
     eula = true; # set to true if you agree to Mojang's EULA: https://account.mojang.com/documents/minecraft_eula
     declarative = true;
 
@@ -163,8 +163,9 @@
       # Exact details as to how will be explained later. If you want
       # you can replace this with another password.
       "rcon.password" = "69420";
-      level-seed = "";
+      level-seed = "0984232342";
       difficulty = "hard";
+      view-distance = 32;
     };
   };
 
