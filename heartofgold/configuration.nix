@@ -9,7 +9,7 @@ let
 in
 {
   # give this config a label
-  system.nixos.tags = ["added_quickemu"];
+  system.nixos.tags = ["added_drawio"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -21,7 +21,10 @@ in
 
   # automate garbage collection
   nix = {
-    settings.auto-optimise-store = true;
+    settings= {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];  # enable flakes
+    };
     gc = {
       automatic = true;
       dates = "weekly";
@@ -61,10 +64,11 @@ in
   
   #Configure console Keymap
   console.keyMap = "de";
+  systemd.tmpfiles.rules = [
+  "L /usr/share/X11/xkb/rules/base.xml - - - - ${pkgs.xkeyboard_config}/share/X11/xkb/rules/base.xml"
+];
 
   # Sound
-  sound.enable = true;
-  sound.mediaKeys.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -75,19 +79,17 @@ in
   };	 
 
   # define window manager
-  programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
   
   # OpenGL/CL and Vulkan support
-  hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
   rocm-opencl-icd
   rocm-opencl-runtime
   amdvlk
   driversi686Linux.amdvlk	# add vulkan support for 32-bit applications
   ];
 
-  # Vulkan Support
-  hardware.opengl.driSupport = true;
 
   # Force radv (graphics card driver)
   environment.variables.AMD_VULKAN_ICD = "RADV";
@@ -122,9 +124,8 @@ in
     steam
     wofi  # launcher
     pfetch  # like neofetch
-    nerdfonts
     git
-    waybar
+#    waybar
     hyprpicker  # color picker
     feh  # image viewer
     signal-desktop
@@ -141,24 +142,39 @@ in
     wl-clipboard  # ctr+c and ctr+v used for screenshots
     libreoffice
     wineWowPackages.waylandFull
-    gimp-with-plugins  # image manipulation tool
+#    gimp-with-plugins  # image manipulation tool
     nomacs  # image viewer
     picard  # music tagger
-    gnome.seahorse  # keyring gui
+    seahorse  # keyring gui
     libsForQt5.polkit-kde-agent
     polkit_gnome
     microsoft-edge
     (python3.withPackages(ps: with ps; [ matplotlib numpy jupyter sympy scipy]))
+    julia
     xdg-utils  # command line tools that assist applications with a variety of desktop integration tasks (vscode open links)
     prismlauncher  # minecraft launcher
     qemu
     quickemu
+    telegram-desktop
+    qalculate-gtk
+    android-tools
+    javaPackages.openjfx21
+    btop
+    drawio
+    # femm https://www.femm.info/wiki/Download
   ];
 
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];
+
+  # enable COSMIC
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
+  # enable flatpak
+  xdg.portal.enable = true;
+  xdg.portal.config.common.default = "*";
 
   # enable steam 
   programs.steam = {
@@ -207,7 +223,7 @@ programs.virt-manager.enable = true;
   system.stateVersion = "23.05"; # Did you read the comment?
 
   # keep copy of last configuration.nix in /run/current-system/configuration.nix
-  system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true;
 
 
 
