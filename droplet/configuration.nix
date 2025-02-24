@@ -123,7 +123,7 @@
   # Enable the nextcloud server
   services.nextcloud = {
     enable = true; 
-    package = pkgs.nextcloud28;
+    package = pkgs.nextcloud29;
     hostName = "droplet";
     database.createLocally = true;
     config = {
