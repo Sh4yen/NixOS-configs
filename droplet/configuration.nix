@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["changed_nextcloud_domain_name"];
+  system.nixos.tags = ["upgrading_to_nextcloud31"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -123,7 +123,7 @@
   # Enable the nextcloud server
   services.nextcloud = {
     enable = true; 
-    package = pkgs.nextcloud29;
+    package = pkgs.nextcloud31;
     hostName = "droplet";
     database.createLocally = true;
     config = {
