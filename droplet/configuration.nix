@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["upgrading_to_nextcloud31"];
+  system.nixos.tags = ["system_upgrade_11_05_2026_nextcloud32_rmv_neofetch"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -98,7 +98,6 @@
     tree
     wget
     git
-    neofetch
     htop
     minecraft-server
     mcron
@@ -123,7 +122,7 @@
   # Enable the nextcloud server
   services.nextcloud = {
     enable = true; 
-    package = pkgs.nextcloud31;
+    package = pkgs.nextcloud32;
     hostName = "droplet";
     database.createLocally = true;
     config = {
