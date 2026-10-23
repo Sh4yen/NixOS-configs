@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["nextcloud35"];
+  system.nixos.tags = ["fixing_nextcloud_reverse_proxy"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -117,31 +117,53 @@
     services.openssh.enable = true;
   # Enable tailscale
     services.tailscale.enable = true;
-  
+  # Enable funnel for nextcloud server
+     systemd.services.tailscale-funnel = {
+        description = "Tailscale Funnel for Nextcloud";
+        after = [ "tailscaled.service" "network-online.target" ];
+        wants = [ "network-online.target" ];
+        requires = [ "tailscaled.service" ];
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig = {
+           Type = "oneshot";
+           RemainAfterExit = true;
+           ExecStart = "${config.services.tailscale.package}/bin/tailscale funnel --bg 80";
+	   ExecStop = "${config.services.tailscale.package}/bin/tailscale funnel reset";
+        };
+   };  
 
   # Enable the nextcloud server
   services.nextcloud = {
-    enable = true; 
-    package = pkgs.nextcloud35;
-    hostName = "droplet";
-    database.createLocally = true;
-    config = {
-      dbtype = "pgsql";
-    };
-    settings.default_phone_region = "DE";
-    settings.trusted_domains = ["droplet.tail3eae4.ts.net/nextcloud" "droplet.tail3eae4.ts.net"];
-    # redis performant caching backend -> faster page loading
-    configureRedis = true;
-    # enable https encryption
-    https = true;
-    # change max upload file size
-    maxUploadSize = "128G";
-    phpOptions = {
-      upload_max_filesize = "128G";
-      post_max_size = "128G";
-      "opcache.interned_strings_buffer" = "64";  # MB
-    };
+  enable = true;
+  package = pkgs.nextcloud35;  # use the newest one your nixpkgs has
+  hostName = "droplet.tail3eae4.ts.net";
+  database.createLocally = true;
+  configureRedis = true;
+  https = true;
+  maxUploadSize = "128G";
+
+  config = {
+    dbtype = "pgsql";
   };
+
+  settings = {
+    default_phone_region = "DE";
+    trusted_domains = [ "droplet.tail3eae4.ts.net" ];
+    trusted_proxies = [ "127.0.0.1" "::1" ];
+    # Do heavy workloads at night
+    maintenance_window_start = 1; 
+  };
+
+  phpOptions = {
+    upload_max_filesize = "128G";
+    post_max_size = "128G";
+    "opcache.interned_strings_buffer" = "64";
+     };
+   };
+   # Increase database buffer
+   services.postgresql.settings.shared_buffers = "1GB";
+
+
 
 
   # disable minecraft server
@@ -178,8 +200,8 @@
   # security.acme.acceptTerms = true;
   # security.acme.defaults.email = "marxloui@protonmail.com";
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 25565];
+  # Open ports in the firewall for minecraft.
+  networking.firewall.allowedTCPPorts = [ 25565];
   # networking.firewall.allowedTCPPorts = [ ... ];
   networking.firewall.allowedUDPPorts = [25565];
   # Or disable the firewall altogether.
