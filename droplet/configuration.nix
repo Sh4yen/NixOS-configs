@@ -6,7 +6,7 @@
 
 {
   # give this config a label
-  system.nixos.tags = ["system_upgrade_11_05_2026_nextcloud32_rmv_neofetch"];
+  system.nixos.tags = ["nextcloud35"];
 
   imports =
     [ # Include the results of the hardware scan.
@@ -122,12 +122,11 @@
   # Enable the nextcloud server
   services.nextcloud = {
     enable = true; 
-    package = pkgs.nextcloud32;
+    package = pkgs.nextcloud35;
     hostName = "droplet";
     database.createLocally = true;
     config = {
       dbtype = "pgsql";
-      adminpassFile = "/etc/nextcloud-admin-pass";
     };
     settings.default_phone_region = "DE";
     settings.trusted_domains = ["droplet.tail3eae4.ts.net/nextcloud" "droplet.tail3eae4.ts.net"];
